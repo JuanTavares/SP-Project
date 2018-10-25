@@ -18,7 +18,7 @@ export class UserTabComponent implements OnInit {
     .getUsers()
     .subscribe(users => {
       this.userList = this.userList.concat(users);
-      console.log(users);
+      console.log(this.userList);
     });
   }
 
