@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
-import { UserService } from 'src/app/core/user.service';
+import { UserService } from 'src/app/core/user-service/user.service';
+import { MessageService } from 'src/app/core/message-service/message.service';
 
 @Component({
   selector: 'sp-user-tab',
@@ -11,7 +12,10 @@ export class UserTabComponent implements OnInit {
 
   userList: User[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private messageService: MessageService
+    ) { }
 
   ngOnInit() {
     this.userService
