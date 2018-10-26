@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../home/user-tab/user';
-import { UserDetails } from '../home/user-details/user-details';
-import { Repos } from '../home/repos-tab/repos';
+import { UserDetails } from '../../home/user-details/user-details';
+import { Repos } from '../../home/repos-tab/repos';
 
 const API_URL = 'https://api.github.com';
 
