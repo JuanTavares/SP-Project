@@ -1,3 +1,6 @@
-<p *ngIf="userDetails">
-  {{userDetails.login}}
-</p>
+<ul *ngIf="userDetails">
+  <li>{{userDetails.id}}</li>
+  <li>{{userDetails.login}}</li>
+  <li><a target="blank">{{userDetails.html_url}}</a></li>
+  <li>{{userDetails.created_at}}</li>
+</ul>
