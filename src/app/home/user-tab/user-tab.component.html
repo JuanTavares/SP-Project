@@ -1,5 +1,18 @@
-<ul>
-
-  <li *ngFor="let user of userList" (click)="sendMessage(user)">{{user.id}} : {{user.login}}</li>
-
-</ul>
+<div class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Login</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList" (click)="sendMessage(user)">
+        <td>{{user.id}}</td>
+        <td>{{user.login}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button (click)="pagination(-30)" [disabled]="number <=0" class="btn btn-primary" type="button">< Previous</button>
+<button (click)="pagination(30)" class="btn btn-primary" type="button">Next ></button>
