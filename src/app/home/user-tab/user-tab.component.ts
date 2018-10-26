@@ -15,19 +15,18 @@ export class UserTabComponent implements OnInit {
   constructor(
     private userService: UserService,
     private messageService: MessageService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.userService
-    .getUsers()
-    .subscribe(users => {
-      this.userList = this.userList.concat(users);
-      console.log(this.userList);
-    });
+      .getUsers()
+      .subscribe(users => {
+        this.userList = this.userList.concat(users);
+      });
   }
 
-  sendMessage(userLogin) {
-    this.messageService.sendMessage(userLogin);
+  sendMessage(user) {
+    this.messageService.sendMessage(user);
   }
 
 }

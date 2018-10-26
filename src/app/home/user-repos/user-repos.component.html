@@ -1,0 +1,12 @@
+<table *ngIf="repoList">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>URL</th>
+  </tr>
+  <tr *ngFor="let repo of repoList">
+    <td>{{repo.id}}</td>
+    <td>{{repo.name}}</td>
+    <td>{{repo.html_url}}</td>
+  </tr>
+</table>

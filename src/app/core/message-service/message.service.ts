@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { User } from 'src/app/home/user-tab/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class MessageService {
 
   constructor() { }
 
-  sendMessage(message: string) {
+  sendMessage(message: User) {
     this.messageSubject.next(message);
   }
   getMessage(): Observable<any> {

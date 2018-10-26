@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, SystemJsNgModuleLoaderConfig } from '@angular/core';
 import { MessageService } from 'src/app/core/message-service/message.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/user-service/user.service';
+import { User } from '../user-tab/user';
 
 @Component({
   selector: 'sp-user-details',
@@ -10,9 +11,9 @@ import { UserService } from 'src/app/core/user-service/user.service';
 })
 export class UserDetailsComponent implements OnDestroy {
 
-  user: string;
-  userDetails: string;
   subscription: Subscription;
+  clickedUser: User;
+  userDetails: Object;
 
   constructor(
     private messageService: MessageService,
@@ -20,19 +21,17 @@ export class UserDetailsComponent implements OnDestroy {
   ) {
     this.subscription = this.messageService
       .getMessage()
-      .subscribe(message => {
-        this.user = message;
-        console.log(this.user);
+      .subscribe(clickedUser => {
+        this.clickedUser = clickedUser;
         this.updateDetails();
       });
   }
 
   updateDetails() {
     this.userService
-      .getUserDetails(this.user)
-      .subscribe(details => {
-        this.userDetails = details;
-        console.log(this.userDetails);
+      .getUserDetails(this.clickedUser)
+      .subscribe(userDetails => {
+        this.userDetails = userDetails;
       });
   }
 
