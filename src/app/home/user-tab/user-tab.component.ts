@@ -26,4 +26,8 @@ export class UserTabComponent implements OnInit {
     });
   }
 
+  sendMessage(userLogin) {
+    this.messageService.sendMessage(userLogin);
+  }
+
 }
