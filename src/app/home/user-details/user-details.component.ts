@@ -2,7 +2,6 @@ import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from 'src/app/core/message-service/message.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/user-service/user.service';
-import { UserDetails } from './user-details';
 
 @Component({
   selector: 'sp-user-details',
@@ -23,7 +22,6 @@ export class UserDetailsComponent implements OnDestroy {
       .getMessage()
       .subscribe(message => {
         this.user = message;
-        console.log(this.user);
         this.updateDetails();
       });
   }
@@ -33,7 +31,6 @@ export class UserDetailsComponent implements OnDestroy {
       .getUserDetails(this.user)
       .subscribe(details => {
         this.userDetails = details;
-        console.log(this.userDetails);
       });
   }
 
