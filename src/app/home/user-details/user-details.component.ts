@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from 'src/app/core/message-service/message.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/user-service/user.service';
+import { UserDetails } from './user-details';
 
 @Component({
   selector: 'sp-user-details',
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/core/user-service/user.service';
 export class UserDetailsComponent implements OnDestroy {
 
   user: string;
-  userDetails: string;
+  userDetails: UserDetails;
   subscription: Subscription;
 
   constructor(
