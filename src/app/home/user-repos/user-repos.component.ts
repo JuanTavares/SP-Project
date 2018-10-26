@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/core/user-service/user.service';
 import { MessageService } from 'src/app/core/message-service/message.service';
 import { Subscription } from 'rxjs';
+import { User } from '../user-tab/user';
 
 @Component({
   selector: 'sp-user-repos',
@@ -10,8 +11,9 @@ import { Subscription } from 'rxjs';
 })
 export class UserReposComponent implements OnDestroy {
 
-  user: string;
   subscription: Subscription;
+  clickedUser: User;
+  repoList;
 
   constructor(
     private userService: UserService,
@@ -19,14 +21,18 @@ export class UserReposComponent implements OnDestroy {
   ) {
     this.subscription = this.messageService
       .getMessage()
-      .subscribe(message => {
-        this.user = message;
+      .subscribe(clickedUser => {
+        this.clickedUser = clickedUser;
         this.updateRepos();
       });
   }
 
   updateRepos() {
-
+    this.userService
+      .getUsersRepos(this.clickedUser)
+      .subscribe(repoList => {
+        this.repoList = repoList;
+      });
   }
 
   ngOnDestroy() {

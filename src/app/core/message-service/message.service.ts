@@ -12,8 +12,6 @@ export class MessageService {
   constructor() { }
 
   sendMessage(message: User) {
-    console.log(message);
-    console.log(message.url);
     this.messageSubject.next(message);
   }
   getMessage(): Observable<any> {

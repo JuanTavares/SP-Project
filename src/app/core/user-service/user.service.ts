@@ -16,7 +16,6 @@ export class UserService {
     return this.http.get<User[]>(API_URL + '/users');
   }
   getUserDetails(user) {
-    console.log(user.url);
     return this.http.get(user.url);
   }
   getUsersRepos(user) {

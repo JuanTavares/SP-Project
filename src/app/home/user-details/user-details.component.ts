@@ -11,9 +11,9 @@ import { User } from '../user-tab/user';
 })
 export class UserDetailsComponent implements OnDestroy {
 
-  userDetails: Object;
-  clickedUser: User;
   subscription: Subscription;
+  clickedUser: User;
+  userDetails: Object;
 
   constructor(
     private messageService: MessageService,
@@ -23,6 +23,7 @@ export class UserDetailsComponent implements OnDestroy {
       .getMessage()
       .subscribe(clickedUser => {
         this.clickedUser = clickedUser;
+        this.updateDetails();
       });
   }
 
@@ -30,7 +31,6 @@ export class UserDetailsComponent implements OnDestroy {
     this.userService
       .getUserDetails(this.clickedUser)
       .subscribe(userDetails => {
-        console.log(userDetails);
         this.userDetails = userDetails;
       });
   }
