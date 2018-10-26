@@ -11,6 +11,8 @@ import { MessageService } from 'src/app/core/message-service/message.service';
 export class UserTabComponent implements OnInit {
 
   userList: User[] = [];
+  number = 0;
+  paginator;
 
   constructor(
     private userService: UserService,
@@ -19,9 +21,19 @@ export class UserTabComponent implements OnInit {
 
   ngOnInit() {
     this.userService
-      .getUsers()
+      .getUsers(this.number)
       .subscribe(users => {
         this.userList = this.userList.concat(users);
+      });
+  }
+
+  pagination(number) {
+    this.number += number;
+    console.log(this.number);
+    this.userService
+      .getUsers(this.number)
+      .subscribe(users => {
+        this.userList = users;
       });
   }
 

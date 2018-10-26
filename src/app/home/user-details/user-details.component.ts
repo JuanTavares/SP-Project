@@ -1,4 +1,4 @@
-import { Component, OnDestroy, SystemJsNgModuleLoaderConfig } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from 'src/app/core/message-service/message.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/user-service/user.service';

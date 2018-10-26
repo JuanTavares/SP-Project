@@ -1,6 +1,20 @@
-<ul *ngIf="userDetails">
-  <li>{{userDetails.id}}</li>
-  <li>{{userDetails.login}}</li>
-  <li><a target="blank">{{userDetails.html_url}}</a></li>
-  <li>{{userDetails.created_at}}</li>
-</ul>
+<div class="card" *ngIf="userDetails">
+  <table class="table">
+    <tr>
+      <th scope="row">ID</th>
+      <td>{{userDetails.id}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Login</th>
+      <td>{{userDetails.login}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Github URL</th>
+      <td>{{userDetails.html_url}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Created at</th>
+      <td>{{userDetails.created_at | date:'medium'}}</td>
+    </tr>
+  </table>
+</div>

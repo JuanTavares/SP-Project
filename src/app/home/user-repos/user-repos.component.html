@@ -1,12 +1,18 @@
-<table *ngIf="repoList">
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>URL</th>
-  </tr>
-  <tr *ngFor="let repo of repoList">
-    <td>{{repo.id}}</td>
-    <td>{{repo.name}}</td>
-    <td>{{repo.html_url}}</td>
-  </tr>
-</table>
+<div class="card" *ngIf="repoList">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repo of repoList">
+        <td scope="row">{{repo.id}}</td>
+        <td>{{repo.name}}</td>
+        <td>{{repo.html_url}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
