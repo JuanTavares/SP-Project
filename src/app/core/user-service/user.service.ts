@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../home/user-tab/user';
-import { UserDetails } from '../../home/user-details/user-details';
-import { Repos } from '../../home/repos-tab/repos';
 
 const API_URL = 'https://api.github.com';
 
@@ -16,10 +14,10 @@ export class UserService {
   getUsers() {
     return this.http.get<User[]>(API_URL + '/users');
   }
-  getUserDetails(user) {
-    return this.http.get<UserDetails>(API_URL + '/users/' + user);
+  getUserDetails(user: User) {
+    return this.http.get(user.url);
   }
-  getUsersRepos(user) {
-    return this.http.get<Repos>(API_URL + '/users/' + user + '/repos');
+  getUsersRepos(user: User) {
+    return this.http.get(user.repos_url);
   }
 }
